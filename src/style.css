@@ -1,0 +1,36 @@
+:root {
+  --title: #333;
+  --background: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background: var(--background);
+  width: 95vh;
+  height: 95vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0 1em;
+  color: var(--title);
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #333;
+  border-radius: .5rem;
+}
