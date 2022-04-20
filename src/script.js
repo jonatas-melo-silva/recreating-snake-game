@@ -68,8 +68,16 @@ function startGame() {
     snakePositionY += box
   }
 
-  snake.pop()
+  // check if the snake eats the food
+  if (snakePositionX === food.x && snakePositionY === food.y) {
+    food.x = Math.floor(Math.random() * 15 + 1) * box
+    food.y = Math.floor(Math.random() * 15 + 1) * box
+  } else {
+    // remove the last element of the snake
+    snake.pop()
+  }
 
+  // add the new head of the snake
   let newHead = {
     x: snakePositionX,
     y: snakePositionY
