@@ -50,6 +50,13 @@ function startGame() {
     snake[0].y = 16 * box
   }
 
+  // verify if the snake collides with itself
+  for (let i = 1; i < snake.length; i++) {
+    if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+      handlePause()
+      alert('Game Over! :(')
+    }
+  }
 
   let snakePositionX = snake[0].x
   let snakePositionY = snake[0].y
