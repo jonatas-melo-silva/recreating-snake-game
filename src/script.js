@@ -8,6 +8,10 @@ snake[0] = {
 }
 
 let direction = 'right'
+let food = {
+  x: Math.floor(Math.random() * 15 + 1) * box,
+  y: Math.floor(Math.random() * 15 + 1) * box
+}
 
 function createBackground() {
   // create the background
@@ -23,10 +27,17 @@ function createSnake() {
   }
 }
 
+function drawFood() {
+  // draw the food
+  context.fillStyle = '#f00'
+  context.fillRect(food.x, food.y, box, box)
+}
+
 function startGame() {
   // start game by drawing the snake and the background
   createBackground()
   createSnake()
+  drawFood()
 
   // make the snake appear on the other side of the screen
   if (snake[0].x > 15 * box && direction === 'right') {
