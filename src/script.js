@@ -106,11 +106,45 @@ function handleKeyboard(event) {
     direction = 'right'
   } else if (event.keyCode === 40 && direction !== 'up') {
     direction = 'down'
-  } else if (event.keyCode === 80) {
-    handlePause( )
+  } else if (event.keyCode === 32) {
+    handlePause()
+  } else if (event.keyCode === 13) {
+    handleResume()
   } else if (event.keyCode === 82) {
-    handleResume( )
+    handleRestart()
+  } else if (event.keyCode === 86) {
+    handleAcelerante()
+  } else if (event.keyCode === 66) {
+    handleDesacelerante()
   }
+}
+
+function handleRestart() {
+  // restart the game
+  clearInterval(game)
+  snake = []
+  snake[0] = {
+    x: 8 * box,
+    y: 8 * box
+  }
+  direction = 'right'
+  food = {
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+  }
+  game = setInterval(startGame, 100)
+}
+
+function handleAcelerante() {
+  // acelerante the game
+  clearInterval(game)
+  game = setInterval(startGame, 50)
+}
+
+function handleDesacelerante() {
+  // break the game
+  clearInterval(game)
+  game = setInterval(startGame, 500)
 }
 
 function handlePause() {
@@ -120,9 +154,8 @@ function handlePause() {
 
 function handleResume() {
   // resume the game
+  clearInterval(game)
   game = setInterval(startGame, 100)
 }
 
 document.addEventListener('keydown', handleKeyboard)
-document.getElementById('pause').addEventListener('click', handlePause)
-document.getElementById('resume').addEventListener('click', handleResume) 
