@@ -96,7 +96,6 @@ function startGame() {
 let game = setInterval(startGame, 100) // 100ms = 10fps
 
 function handleKeyboard(event) {
-  console.log(event.keyCode)
   // handle keyboard input
   if (event.keyCode === 37 && direction !== 'right') {
     direction = 'left'
